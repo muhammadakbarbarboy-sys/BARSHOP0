@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOP UP GAME | BARSHOP DIGITAL</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --main:#00ff88;
+  --bg:#050505;
+  --card:#0d0d0d;
+  --text:#fff;
+}
+*{margin:0; padding:0; box-sizing:border-box; font-family:'Orbitron',sans-serif;}
+body{background:var(--bg); color:var(--text);}
+
+/* HEADER */
+header{
+  position:sticky; top:0; z-index:99;
+  background:#070707;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 20px; border-bottom:1px solid #1f1f1f;
+}
+.logo{display:flex; align-items:center; gap:10px;}
+.logo-box{width:40px; height:40px; border-radius:10px; background:var(--main); color:#000; display:flex; align-items:center; justify-content:center; font-weight:800;}
+.logo-text h1{font-size:14px;}
+.logo-text p{font-size:10px; color:var(--main);}
+.wa-btn{background:var(--main); color:#000; padding:8px 14px; border-radius:8px; font-size:12px; text-decoration:none; font-weight:600;}
+
+/* SECTION TITLE */
+.section-title{text-align:center; margin:20px 0 15px; font-size:16px;}
+.section-title::after{content:''; display:block; width:60px; height:3px; background:var(--main); margin:10px auto 0;}
+
+/* MENU GRID */
+.menu{display:grid; grid-template-columns:repeat(2,1fr); gap:15px; padding:0 20px 40px;}
+.menu-card{background:var(--card); border-radius:18px; padding:22px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,.6); transition:.3s; cursor:pointer; color:var(--text);}
+.menu-card:hover{transform:translateY(-6px); box-shadow:0 15px 35px rgba(0,255,136,.25);}
+.menu-card img{width:60px; height:60px; margin-bottom:10px; border-radius:12px; object-fit:contain;}
+.menu-card h3{font-size:14px; margin-bottom:6px;}
+.menu-card p{font-size:11px; color:#aaa; display:none;} /* Diamond info dihapus */
+
+/* FOOTER */
+footer{padding:20px; text-align:center; font-size:11px; color:#666; border-top:1px solid #1f1f1f;}
+
+/* THEME PANEL */
+.theme-panel{position:fixed; bottom:20px; right:20px; background:#111; padding:14px; border-radius:12px; z-index:999; box-shadow:0 10px 30px rgba(0,0,0,.7);}
+.theme-panel h4{font-size:12px; margin-bottom:10px;}
+.colors{display:flex; gap:8px;}
+.colors span{width:24px; height:24px; border-radius:50%; cursor:pointer; border:2px solid #222;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-box">B</div>
+    <div class="logo-text">
+      <h1>BARSHOP DIGITAL</h1>
+      <p>Layanan Digital & Game</p>
+    </div>
+  </div>
+  <a href="index.html" class="wa-btn">⬅ HOME</a>
+</header>
+
+<h2 class="section-title">PILIH GAME</h2>
+
+<section class="menu">
+  <div class="menu-card" onclick="window.location.href='freefire.html'">
+    <img src="freefire.png" alt="Free Fire">
+    <h3>Free Fire</h3>
+  </div>
+
+  <div class="menu-card" onclick="window.location.href='ml.html'">
+    <img src="ml.png" alt="Mobile Legends">
+    <h3>Mobile Legends</h3>
+  </div>
+
+  <div class="menu-card" onclick="window.location.href='pubg.html'">
+    <img src="pubg.png" alt="PUBG Mobile">
+    <h3>PUBG Mobile</h3>
+  </div>
+
+  <div class="menu-card" onclick="window.location.href='valorant.html'">
+    <img src="valorant.png" alt="Valorant">
+    <h3>Valorant</h3>
+  </div>
+
+  <div class="menu-card" onclick="window.location.href='genshin.html'">
+    <img src="genshin.png" alt="Genshin Impact">
+    <h3>Genshin Impact</h3>
+  </div>
+
+  <div class="menu-card" onclick="window.location.href='cod.html'">
+    <img src="cod.png" alt="Call of Duty">
+    <h3>Call of Duty</h3>
+  </div>
+
+  <div class="menu-card" onclick="window.location.href='minecraft.html'">
+    <img src="minecraft.png" alt="Minecraft">
+    <h3>Minecraft</h3>
+  </div>
+
+  <div class="menu-card" onclick="window.location.href='lol.html'">
+    <img src="lol.png" alt="League of Legends">
+    <h3>League of Legends</h3>
+  </div>
+</section>
+
+<!-- THEME PANEL -->
+<div class="theme-panel">
+  <h4>🎨 Tema</h4>
+  <div class="colors">
+    <span style="background:#00ff88" onclick="setTheme('#00ff88')"></span>
+    <span style="background:#9b5cff" onclick="setTheme('#9b5cff')"></span>
+    <span style="background:#ff3b3b" onclick="setTheme('#ff3b3b')"></span>
+    <span style="background:#3b82ff" onclick="setTheme('#3b82ff')"></span>
+    <span style="background:#facc15" onclick="setTheme('#facc15')"></span>
+  </div>
+</div>
+
+<footer>© 2026 BARSHOP DIGITAL</footer>
+
+<script>
+function setTheme(color){
+  document.documentElement.style.setProperty('--main',color);
+  localStorage.setItem('themeColor',color);
+}
+const savedTheme=localStorage.getItem('themeColor');
+if(savedTheme) document.documentElement.style.setProperty('--main',savedTheme);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Up Free Fire | BARSHOP DIGITAL</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --main:#00ff88;
+  --bg:#050505;
+  --card:#0d0d0d;
+  --text:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif;}
+body{background:var(--bg);color:var(--text);}
+
+/* HEADER */
+.header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 16px;border-bottom:1px solid #1f1f1f;
+}
+.header h1{font-size:16px;color:var(--main);}
+.back{
+  background:var(--main);color:#000;padding:7px 12px;border-radius:7px;
+  font-size:11px;text-decoration:none;font-weight:600;
+}
+
+/* CONTAINER */
+.container{max-width:1100px;margin:auto;padding:16px;}
+
+/* BOX */
+.box{
+  background:var(--card);
+  border:1px solid var(--main);
+  border-radius:10px;
+  padding:12px;
+  margin-bottom:16px;
+}
+label{font-size:12px;color:#aaa;display:block;margin-bottom:6px;}
+input{
+  width:100%;
+  padding:8px 10px;
+  border-radius:6px;
+  border:1px solid #333;
+  background:#0b0b0b;
+  color:#fff;
+  font-size:13px;
+}
+
+/* TITLE */
+.section-title{
+  margin:18px 0 10px;
+  font-size:14px;
+  color:var(--main);
+  border-left:4px solid var(--main);
+  padding-left:10px;
+}
+
+/* GRID NORMAL */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:10px;
+}
+
+/* GRID PANJANG */
+.grid-wide{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:12px;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border:1px solid var(--main);
+  border-radius:10px;
+  padding:10px;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
+}
+.card:hover{transform:scale(1.03);}
+.card.active{box-shadow:0 0 14px rgba(0,255,136,.6);}
+.dm{font-size:14px;font-weight:700;}
+.price{color:var(--main);font-size:12px;margin-top:4px;}
+
+/* BUTTON */
+.order-btn{
+  width:100%;
+  margin-top:18px;
+  padding:11px;
+  background:var(--main);
+  color:#000;
+  border:none;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.footer{
+  text-align:center;
+  margin-top:20px;
+  font-size:11px;
+  color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>TOP UP FREE FIRE</h1>
+  <a href="index.html" class="back">⬅ HOME</a>
+</div>
+
+<div class="container">
+
+  <!-- USER ID -->
+  <div class="box">
+    <label>User ID Free Fire</label>
+    <input type="text" id="userid" placeholder="Contoh: 1234567890">
+  </div>
+
+  <!-- DIAMOND -->
+  <div class="section-title">💎 DIAMOND</div>
+  <div class="grid" id="diamondList"></div>
+
+  <!-- MEMBERSHIP -->
+  <div class="section-title">⭐ MEMBERSHIP</div>
+  <div class="grid-wide">
+    <div class="card" onclick="selectItem('Membership Mingguan','Rp 30.000',this)">
+      <div class="dm">Membership Mingguan</div>
+      <div class="price">Rp 30.000</div>
+    </div>
+    <div class="card" onclick="selectItem('Membership Bulanan','Rp 90.000',this)">
+      <div class="dm">Membership Bulanan</div>
+      <div class="price">Rp 90.000</div>
+    </div>
+  </div>
+
+  <!-- PAYMENT -->
+  <div class="section-title">💳 METODE PEMBAYARAN</div>
+  <div class="grid">
+    <div class="card pay-card" onclick="selectPayment('DANA',this)">
+      <div class="dm">DANA</div>
+      <div class="price">E-Wallet</div>
+    </div>
+    <div class="card pay-card" onclick="selectPayment('GoPay',this)">
+      <div class="dm">GoPay</div>
+      <div class="price">E-Wallet</div>
+    </div>
+  </div>
+
+  <button class="order-btn" onclick="sendWA()">ORDER SEKARANG</button>
+
+  <div class="footer">© BARSHOP DIGITAL</div>
+</div>
+
+<script>
+/* ===== DATA DIAMOND (21 BLOK) ===== */
+const diamonds=[
+ {dm:"5 Diamond",price:"Rp 1.000"},
+ {dm:"12 Diamond",price:"Rp 2.000"},
+ {dm:"25 Diamond",price:"Rp 4.000"},
+ {dm:"50 Diamond",price:"Rp 8.000"},
+ {dm:"70 Diamond",price:"Rp 10.000"},
+ {dm:"100 Diamond",price:"Rp 15.000"},
+ {dm:"140 Diamond",price:"Rp 20.000"},
+ {dm:"210 Diamond",price:"Rp 30.000"},
+ {dm:"355 Diamond",price:"Rp 50.000"},
+ {dm:"425 Diamond",price:"Rp 60.000"},
+ {dm:"500 Diamond",price:"Rp 70.000"},
+ {dm:"720 Diamond",price:"Rp 100.000"},
+ {dm:"860 Diamond",price:"Rp 120.000"},
+ {dm:"1000 Diamond",price:"Rp 140.000"},
+ {dm:"1440 Diamond",price:"Rp 200.000"},
+
+];
+
+const diamondList=document.getElementById("diamondList");
+diamonds.forEach(d=>{
+  diamondList.innerHTML+=`
+  <div class="card" onclick="selectItem('${d.dm}','${d.price}',this)">
+    <div class="dm">${d.dm}</div>
+    <div class="price">${d.price}</div>
+  </div>`;
+});
+
+/* ===== ORDER LOGIC ===== */
+let selectedItem='',selectedPrice='',selectedPay='';
+
+function selectItem(item,price,el){
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  selectedItem=item;
+  selectedPrice=price;
+}
+
+function selectPayment(pay,el){
+  document.querySelectorAll('.pay-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  selectedPay=pay;
+}
+
+function sendWA(){
+  const id=document.getElementById('userid').value.trim();
+  if(!id){alert('User ID wajib diisi!');return;}
+  if(!selectedItem){alert('Pilih Diamond / Membership!');return;}
+  if(!selectedPay){alert('Pilih metode pembayaran!');return;}
+
+  const msg=
+`Halo Admin BARSHOP DIGITAL,
+Saya ingin Top Up Free Fire.
+
+User ID : ${id}
+Pesanan : ${selectedItem}
+Harga   : ${selectedPrice}
+Pembayaran : ${selectedPay}
+
+Terima kasih.`;
+
+  window.open(
+    `https://wa.me/6281241157330?text=${encodeURIComponent(msg)}`,
+    '_blank'
+  );
+}
+
+/* SINKRON TEMA DARI HOME */
+const savedTheme=localStorage.getItem('themeColor');
+if(savedTheme){
+  document.documentElement.style.setProperty('--main',savedTheme);
+}
+</script>
+
+</body>
+</html>

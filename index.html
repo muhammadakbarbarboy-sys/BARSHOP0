@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARSHOP DIGITAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen">
+  <div class="spinner"></div>
+  <p>Loading BARSHOP DIGITAL...</p>
+</div>
+
+<header>
+  <div class="logo">
+    <div class="logo-box">B</div>
+    <div class="logo-text">
+      <h1>BARSHOP DIGITAL</h1>
+      <p>Layanan Digital & Game</p>
+    </div>
+  </div>
+  <a href="https://wa.me/628xxxxxxxxx" class="wa-btn">WhatsApp</a>
+</header>
+
+<div class="banner">
+  <div class="slide active">
+    <img src="banner1.png" alt="Banner 1">
+    <div class="banner-text">
+      <h2>TOP UP GAME</h2>
+      <p>Murah • Cepat • Aman</p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="banner2.png" alt="Banner 2">
+    <div class="banner-text">
+      <h2>JB AKUN GAME</h2>
+      <p>Akun legal & terpercaya</p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="banner3.png" alt="Banner 3">
+    <div class="banner-text">
+      <h2>JASA JOKI GAME</h2>
+      <p>Push rank aman</p>
+    </div>
+  </div>
+  <div class="dots">
+    <span class="dot active" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+  </div>
+</div>
+
+<h2 class="section-title">MENU LAYANAN</h2>
+
+<section class="menu">
+  <a href="topup.html" class="menu-card">
+    <div class="menu-icon">🎮</div>
+    <h3>TOP UP GAME</h3>
+    <p>FF, ML, PUBG</p>
+  </a>
+
+  <a href="pulsa.html" class="menu-card">
+    <div class="menu-icon">📶</div>
+    <h3>PULSA & DATA</h3>
+    <p>Semua operator</p>
+  </a>
+
+  <a href="jb-akun.html" class="menu-card">
+    <div class="menu-icon">🛒</div>
+    <h3>JB AKUN GAME</h3>
+    <p>Aman & terpercaya</p>
+  </a>
+
+  <a href="joki.html" class="menu-card">
+    <div class="menu-icon">🎯</div>
+    <h3>JASA JOKI</h3>
+    <p>Rank & leveling</p>
+  </a>
+
+  <a href="desain.html" class="menu-card">
+    <div class="menu-icon">🎨</div>
+    <h3>JASA DESAIN</h3>
+    <p>Logo & banner</p>
+  </a>
+
+  <a href="buat-akun.html" class="menu-card">
+    <div class="menu-icon">🧾</div>
+    <h3>PEMBUATAN AKUN</h3>
+    <p>Media Sosial 1K Following</p>
+  </a>
+
+  <a href="redeem.html" class="menu-card">
+    <div class="menu-icon">💎</div>
+    <h3>REDEEM CODE</h3>
+    <p>Tukar kode hadiah</p>
+  </a>
+
+  <a href="apk-mod.html" class="menu-card">
+    <div class="menu-icon">🛡️</div>
+    <h3>APK MOD PREMIUM</h3>
+    <p>Game & app versi premium</p>
+  </a>
+
+  <a href="teman-mabar.html" class="menu-card">
+    <div class="menu-icon">🤝</div>
+    <h3>JASA TEMAN MABAR</h3>
+    <p>Teman main game online</p>
+  </a>
+
+  <!-- GAME BUATAN ADMIN -->
+<a href="game-admin.html" class="menu-card">
+  <div class="menu-icon">🕹️</div>
+  <h3>GAME BUATAN ADMIN</h3>
+  <p>Game eksklusif BARSHOP</p>
+</a>
+
+<!-- KOMUNITAS GAME -->
+<a href="komunitas.html" class="menu-card">
+  <div class="menu-icon">👥</div>
+  <h3>KOMUNITAS GAME</h3>
+  <p>Grup & mabar bareng</p>
+</a>
+  
+  <!-- DAFTAR TEAM BARSHOP -->
+<a href="daftar-team.html" class="menu-card">
+  <div class="menu-icon">🧑‍💻</div>
+  <h3>DAFTAR TEAM BARSHOP</h3>
+  <p>Gabung jadi admin / partner</p>
+</a>
+  
+</section>
+
+<footer>© 2026 BARSHOP DIGITAL</footer>
+  
+  
+<div class="theme-panel">
+  <h4>🎨 Tema</h4>
+  <div class="colors">
+    <span style="background:#00ff88" onclick="setTheme('#00ff88')"></span>
+    <span style="background:#9b5cff" onclick="setTheme('#9b5cff')"></span>
+    <span style="background:#ff3b3b" onclick="setTheme('#ff3b3b')"></span>
+    <span style="background:#3b82ff" onclick="setTheme('#3b82ff')"></span>
+    <span style="background:#facc15" onclick="setTheme('#facc15')"></span>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
